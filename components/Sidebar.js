@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Sidebar = () => {
   return (
-    <div className='w-1/3 ' style={{ backgroundColor: '#15202B' }}>
-      <div className='flex flex-col text-white text-lg fixed top-0'>
+    <div className='w-1/3'>
+      <div className='flex flex-col text-lg fixed top-0'>
         <LogoIcon />
         <div
           className='flex items-center  hover:bg-blue-400 hover:bg-opacity-25

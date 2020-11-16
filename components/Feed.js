@@ -1,8 +1,8 @@
-import React from 'react';
+import Head from 'next/head';
 import NewTweet from './NewTweet';
 import TweetsFeed from './TweetsFeed';
 
-export default function() {
+const Feeds = () => {
   return (
     <div>
       <div>
@@ -11,4 +11,6 @@ export default function() {
       </div>
     </div>
   );
-}
+};
+
+export default Feeds;
