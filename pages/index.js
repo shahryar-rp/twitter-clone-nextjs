@@ -11,7 +11,7 @@ export default function Home() {
         <title>Twitter Clone</title>
       </Head>
       <main
-        className='w-full border-solid border-l border-gray-500 border-opacity-25'
+        className='w-full border-solid border-r-2 border-l-2 border-gray-500 border-opacity-25'
         style={{ backgroundColor: '#15202B' }}
       >
         <div className='font-bold py-3 px-2 text-white border-solid border-b-2 border-gray-500 border-opacity-25'>

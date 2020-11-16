@@ -13,7 +13,7 @@ const NewTweet = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <textarea
             name='tweet'
-            placeholder='what is your mind...?'
+            placeholder='what is in your mind...?'
             className='w-full rounded-md h-20 p-2'
             ref={register({ required: true })}
           />

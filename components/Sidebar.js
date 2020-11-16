@@ -3,28 +3,25 @@ import Link from 'next/link';
 
 const Sidebar = () => {
   return (
-    <div
-      className='w-1/3 '
-      style={{ backgroundColor: '#15202B', position: 'sticky' }}
-    >
+    <div className='w-1/3 ' style={{ backgroundColor: '#15202B' }}>
       <div className='flex flex-col text-white text-lg fixed top-0'>
         <LogoIcon />
         <div
-          className='flex items-center  hover:bg-blue-400
+          className='flex items-center  hover:bg-blue-400 hover:bg-opacity-25
           transition duration-200 px-2 py-1  rounded-2xl m-2'
         >
           <HomeIcon className='w-8 mr-3' />
           <Link href='/'>Feeds</Link>
         </div>
         <div
-          className='flex items-center hover:bg-blue-400
-          transition duration-200 px-2 py-1 rounded-2xl m-2'
+          className='flex items-center hover:bg-blue-400 hover:bg-opacity-25
+          transition duration-200  px-2 py-1 rounded-2xl m-2'
         >
           <ExploreIcon className='w-8 mr-3 ' />
           <Link href='/explore'>Explore</Link>
         </div>
         <div
-          className='flex items-center hover:bg-blue-400
+          className='flex items-center hover:bg-blue-400 hover:bg-opacity-25
           transition duration-200 px-2 py-1 rounded-2xl m-2'
         >
           <NotificationIcon className='w-8 mr-3' />

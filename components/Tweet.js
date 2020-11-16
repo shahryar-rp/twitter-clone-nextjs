@@ -7,7 +7,7 @@ const Tweet = () => {
         <img className='rounded-full' src='/profile.jpg' />
       </div>
       <div className='content p-2 text-white'>
-        <div className='flex mb-2'>
+        <div className='flex mb-4'>
           <p className='font-bold mr-2'>Shahryar</p>
           <p className='text-gray-600'>@dizonans</p>
         </div>
