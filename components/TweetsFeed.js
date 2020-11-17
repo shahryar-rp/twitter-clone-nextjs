@@ -1,16 +1,17 @@
-import React from 'react';
+import useTweets from '../hooks/useTweets';
 import Tweet from './Tweet';
 
 const TweetsFeed = () => {
-  return (
-    <div>
-      <Tweet />
-      <Tweet />
-      <Tweet />
-      <Tweet />
-      <Tweet />
-    </div>
-  );
+  const data = useTweets();
+
+  const tweets = data.map((tweet) => (
+    <Tweet
+      name={tweet.author.name}
+      username={tweet.author.username}
+      content={tweet.content}
+    />
+  ));
+  return <div>{tweets}</div>;
 };
 
 export default TweetsFeed;
