@@ -1,16 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useCreateTweets from '../hooks/useCreateTweet';
 
 const NewTweet = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors, reset } = useForm();
+  const [createTweet] = useCreateTweets();
 
-  // const onSubmit = (data) => console.log(data);
-  // console.log(watch('tweet'));
+  const onSubmit = (data) => {
+    createTweet(data);
+    reset();
+  };
 
   return (
-    <div className='border-solid border-b-8 border-gray-500 border-opacity-25'>
+    <div className='border-solid border-b-8 border-gray-500 border-opacity-25 text-black'>
       <div className='mb-2 m-2'>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <textarea
             name='tweet'
             placeholder='what is in your mind...?'

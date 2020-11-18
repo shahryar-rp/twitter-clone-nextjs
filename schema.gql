@@ -4,7 +4,7 @@ type User @collection(name: "users") {
   email: String! @unique(index: "unique_email")
   password: String!
   photo_url: String
-  tweets: [Tweet!] @relation(name: "user_tweets")
+  tweets: [Tweet!]
 }
 
 type Tweet @collection(name: "tweets") {

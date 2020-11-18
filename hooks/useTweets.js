@@ -1,4 +1,4 @@
-import { queryCache, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import axios from 'axios';
 
 function useTweets() {

@@ -20,6 +20,7 @@ const TweetsFeed = () => {
       ) : (
         data.map((tweet) => (
           <Tweet
+            key={tweet._id}
             name={tweet.author.name}
             username={tweet.author.username}
             content={tweet.content}

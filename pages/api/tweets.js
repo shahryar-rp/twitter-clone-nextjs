@@ -1,5 +1,5 @@
 import { request, gql } from 'graphql-request';
-import { client } from '../../utils/Fuana';
+import { client } from '../../utils/graphql-client';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
