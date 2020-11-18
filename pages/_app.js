@@ -3,7 +3,7 @@ import Extra from '../components/Extra';
 import { QueryCache, ReactQueryCacheProvider } from 'react-query';
 
 import { ReactQueryDevtools } from 'react-query-devtools';
-
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import '../styles/globals.css';
 
 const queryCache = new QueryCache();
