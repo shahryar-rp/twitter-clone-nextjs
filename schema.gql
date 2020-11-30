@@ -2,7 +2,7 @@ type User @collection(name: "users") {
   name: String!
   username: String! @unique(index: "unique_username")
   email: String! @unique(index: "unique_email")
-  password: String!
+  credentials: { password: String! }
   photo_url: String
   tweets: [Tweet!]
 }

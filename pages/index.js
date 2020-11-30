@@ -7,6 +7,7 @@ export default function Home() {
       <Head>
         <title>Twitter Clone</title>
       </Head>
+
       <Feed />
     </div>
   );
