@@ -1,42 +1,37 @@
-import useTweets from '../hooks/useTweets';
+import { useEffect } from 'react';
 import Loader from 'react-loader-spinner';
+
+import useTweets from '../hooks/useTweets';
 import Tweet from './Tweet';
 
 const TweetsFeed = () => {
-  const { data, isLoading, error } = useTweets();
+  const { data, isLoading } = useTweets();
 
   if (isLoading) {
     return (
-      <div className='w-full flex items-center justify-center py-8'>
+      <div className="w-full flex items-center justify-center py-8">
         <Loader
-          type='Oval'
-          color='#00BFFF'
+          type="Oval"
+          color="#00BFFF"
           height={50}
           width={50}
-          timeout={3000} //3 secs
+          timeout={3000} // 3 secs
         />
       </div>
     );
   }
 
-  if (error) {
-    return (
-      <div className='w-full text-center justify-center py-8'>
-        <h4 className='text-red-500'>Can't access tweets feed right now</h4>
-        <br />
-        <p className='text-red-500'>{`${error}`}</p>
-      </div>
-    );
+  if (!data) {
+    return <h2>Start Adding tweets...!</h2>;
   }
 
   return (
     <div>
-      {data.map((tweet) => (
+      {data.map((tw) => (
         <Tweet
-          key={tweet._id}
-          name={tweet.author.name}
-          username={tweet.author.username}
-          content={tweet.content}
+          key={tw.ref['@ref'].id}
+          content={tw.data.tweet}
+          id={tw.ref['@ref'].id}
         />
       ))}
     </div>

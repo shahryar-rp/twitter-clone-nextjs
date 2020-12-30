@@ -1,31 +1,16 @@
-import { request, gql } from 'graphql-request';
-import { client } from '../../utils/graphql-client';
+import { getTweets } from '../../db/queries/crud';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405);
   }
 
-  const query = gql`
-    query {
-      allTweets {
-        data {
-          _id
-          _ts
-          author {
-            _id
-            name
-            username
-          }
-          content
-        }
-      }
-    }
-  `;
+  try {
+    const tweets = await getTweets();
 
-  const data = await client.request(query);
-  const formattedData = data.allTweets.data.sort((x, y) => y._ts - x._ts);
-
-  res.statusCode = 200;
-  res.json(formattedData);
+    return res.status(200).json(tweets);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
 }
