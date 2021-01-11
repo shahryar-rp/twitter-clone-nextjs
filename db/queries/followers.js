@@ -1,5 +1,5 @@
-import { flattenDataKeys } from '../helpers/util';
-// const faunadb = require('faunadb');
+import faunadb from 'faunadb';
+
 const q = faunadb.query;
 const { Call, Create, Collection, Var, Let } = q;
 

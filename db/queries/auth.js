@@ -1,6 +1,6 @@
+/* eslint-disable no-return-await */
 import faunadb from 'faunadb';
-import { flattenDataKeys } from '../helpers/util';
-import { AddRateLimiting } from './rate-limiting';
+import { faunaClient } from '../fauna-auth';
 import { Follow } from './followers';
 
 const q = faunadb.query;
@@ -27,6 +27,34 @@ const {
   GTE,
   Length,
 } = q;
+
+export async function Authenticate(email, password) {
+  return await faunaClient.query(
+    q.Login(q.Match(q.Index('Users_by_email'), email), {
+      password,
+    })
+  );
+}
+
+export async function RegisterUser(name, username, email, password) {
+  return await faunaClient.query(
+    q.Create(Collection('Users'), {
+      data: {
+        name,
+        username,
+        email,
+      },
+      credentials: {
+        password,
+      },
+    })
+  );
+}
+
+module.exports = {
+  Authenticate,
+  RegisterUser,
+};
 
 /* Register Example4 - let's extend it to do e-mail validation 
    And follow ourselves at the moment we create the user 
@@ -66,23 +94,23 @@ function RegisterWithUser(
     {
       user: Create(Collection('users'), {
         data: {
-          name: name,
-          alias: alias,
-          icon: icon,
+          name,
+          alias,
+          icon,
         },
       }),
       account: Select(
         ['ref'],
         Create(Collection('accounts'), {
-          credentials: { password: password },
+          credentials: { password },
           data: {
-            email: email,
+            email,
             user: Select(['ref'], Var('user')),
           },
         })
       ),
       // We don't ask verification of the e-mail so we might as well login the user directly.
-      secret: Login(Var('account'), { password: password }),
+      secret: Login(Var('account'), { password }),
     },
     Do(
       // Follow yourself

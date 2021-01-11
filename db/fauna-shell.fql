@@ -1,1 +1,10 @@
-CreateCollection({name: "Tweets"})
+Create(Collection("Users"),{data: {
+      email: "user1@test.com",
+      username: 'firstuser',
+      name: 'first test'
+    },
+    credentials: {
+      password: "123456"
+    }
+  }
+)

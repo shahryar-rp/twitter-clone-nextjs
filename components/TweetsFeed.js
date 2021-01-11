@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 
 import useTweets from '../hooks/useTweets';
@@ -6,7 +5,7 @@ import Tweet from './Tweet';
 
 const TweetsFeed = () => {
   const { data, isLoading } = useTweets();
-
+  console.log(data);
   if (isLoading) {
     return (
       <div className="w-full flex items-center justify-center py-8">
@@ -21,8 +20,12 @@ const TweetsFeed = () => {
     );
   }
 
-  if (!data) {
-    return <h2>Start Adding tweets...!</h2>;
+  if (!data.length) {
+    return (
+      <h2 className="w-full flex items-center justify-center py-8">
+        Start tweeting tweety bird ...
+      </h2>
+    );
   }
 
   return (

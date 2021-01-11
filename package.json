@@ -10,6 +10,7 @@
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "axios": "^0.21.0",
+    "fauna-shell": "^0.12.1",
     "faunadb": "^4.0.0",
     "graphql": "^15.4.0",
     "graphql-request": "^3.3.0",
