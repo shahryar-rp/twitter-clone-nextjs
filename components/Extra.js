@@ -32,7 +32,7 @@ const Extra = () => (
         <div className="mt-3">
           <p className="text-gray-500 text-sm">Trending in Europe</p>
           <h4 className="font-bold my-2">Linux New Distro</h4>
-          <p className="text-gray-500 text-sm">43 tweets</p>
+          <p className="text-gray-500 text-sm">35,124 tweets</p>
         </div>
       </div>
       <div>
