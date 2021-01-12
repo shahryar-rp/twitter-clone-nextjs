@@ -1,6 +1,5 @@
 /* eslint-disable no-return-await */
-import faunadb from 'faunadb';
-import { faunaClient } from '../fauna-auth';
+import { faunaClient, query } from '../fauna-auth';
 
 const {
   Collection,
@@ -16,7 +15,7 @@ const {
   Update,
   Var,
   Lambda,
-} = faunadb.query;
+} = query;
 
 export const createTweet = async (tweet) =>
   await faunaClient.query(

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -12,7 +13,7 @@ export function Link({
   const router = useRouter();
 
   let currentClassName = className;
-  let isActive = router.pathname === href;
+  const isActive = router.pathname === href;
   if (isActive) {
     currentClassName += ` ${activeClassName}`;
   } else {

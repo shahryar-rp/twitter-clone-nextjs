@@ -5,7 +5,7 @@ import useAuthUser from '../hooks/useAuthUser';
 
 export default function Login() {
   const { register, handleSubmit, errors, reset } = useForm();
-  const { mutate } = useAuthUser();
+  const { mutate, userData } = useAuthUser();
   const onSubmit = (data) => {
     mutate(data);
     reset();

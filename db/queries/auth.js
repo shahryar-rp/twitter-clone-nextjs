@@ -1,9 +1,7 @@
 /* eslint-disable no-return-await */
-import faunadb from 'faunadb';
-import { faunaClient } from '../fauna-auth';
+import { faunaClient, query } from '../fauna-auth';
 import { Follow } from './followers';
 
-const q = faunadb.query;
 const {
   Paginate,
   If,
@@ -26,11 +24,11 @@ const {
   Abort,
   GTE,
   Length,
-} = q;
+} = query;
 
 export async function Authenticate(email, password) {
   return await faunaClient.query(
-    q.Login(q.Match(q.Index('Users_by_email'), email), {
+    Login(Match(Index('Users_by_email'), email), {
       password,
     })
   );
@@ -38,7 +36,7 @@ export async function Authenticate(email, password) {
 
 export async function RegisterUser(name, username, email, password) {
   return await faunaClient.query(
-    q.Create(Collection('Users'), {
+    Create(Collection('Users'), {
       data: {
         name,
         username,
