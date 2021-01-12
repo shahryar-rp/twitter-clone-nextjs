@@ -11,7 +11,7 @@ const Tweet = ({ name, username, content, id }) => {
       <div className="content p-2 text-white">
         <div className="flex mb-4">
           <p className="font-bold mr-2">{name}</p>
-          <p className="text-gray-600">{`@${username}`}</p>
+          <p className="text-gray-600">@shahryar_rp</p>
         </div>
         <div className="mb-3">{content}</div>
         <div className="feedback-setion">
